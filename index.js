@@ -23,25 +23,27 @@ module.exports = function() {
             successCallback && successCallback();
             successCallback = true;
           });
-        }
 
-         return pipeline.pipe(es.map(function (file, cb) {
-          function onLoadedFiles() {
-            if (errorText) {
-              cb('could not load file: ' + errorText, file);
-            } else {
-              file.contents = Buffer.concat([new Buffer('global.config = ' + fileData + ';\n'), file.contents]);
-              cb(null, file);
+           return pipeline.pipe(es.map(function (file, cb) {
+            function onLoadedFiles() {
+              if (errorText) {
+                cb('could not load file: ' + errorText, file);
+              } else {
+                file.contents = Buffer.concat([new Buffer('global.config = ' + fileData + ';\n'), file.contents]);
+                cb(null, file);
+              }
             }
-          }
 
-          // there will only be a single file in this stream so we're using successCallback as a flag if we've fully loaded
-          if (successCallback) {
-            onLoadedFiles();
-          } else {
-            successCallback = onLoadedFiles;
-          }
-        }));
+            // there will only be a single file in this stream so we're using successCallback as a flag if we've fully loaded
+            if (successCallback) {
+              onLoadedFiles();
+            } else {
+              successCallback = onLoadedFiles;
+            }
+          }));
+        } else {
+          return pipeline;
+        }
       }
     }
   };
