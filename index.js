@@ -5,6 +5,7 @@ module.exports = function() {
 
   return {
     javascript: {
+      watch: './config/*',
       afterMergeBase: function(options, pipeline) {
         var type = options.buildType,
             configFileName = './config/' + type + '.json',
