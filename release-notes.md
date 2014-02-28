@@ -2,7 +2,13 @@
 
 ## Development
 
-[Commits](https://github.com/jhudson8/gwm-config/compare/v0.0.3...master)
+[Commits](https://github.com/jhudson8/gwm-config/compare/v0.1.1...master)
+
+## v0.1.1 - February 27th, 2014
+
+- allow config entries to be watched for changes - fc807a3
+
+[Commits](https://github.com/jhudson8/gwm-config/compare/v0.0.3...v0.1.1)
 
 ## v0.0.3 - February 23rd, 2014
 
