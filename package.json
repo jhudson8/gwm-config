@@ -1,6 +1,6 @@
 {
   "name": "gwm-config",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Joe Hudson <joehud@gmail.com>",
   "description": "gulp-web-modules plugin used to copy build type specific config JSON to the base javascript file",
   "repository": {
